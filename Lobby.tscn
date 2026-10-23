@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cla46apmrgnmw"]
+
+[ext_resource type="Script" uid="uid://bikcdl03yqnt8" path="res://lobby.gd" id="1_gv8if"]
+[ext_resource type="Script" uid="uid://xgchv3nni2bw" path="res://MetaDataDisplay.gd" id="2_0y700"]
+
+[node name="Lobby" type="Control" unique_id=946530005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gv8if")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=415406459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" unique_id=226334925]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer" unique_id=931685685]
+layout_mode = 2
+script = ExtResource("2_0y700")
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer" unique_id=198253354]
+layout_mode = 2
+text = "LABEL"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/CenterContainer/VBoxContainer" unique_id=770944890]
+layout_mode = 2
+text = "LABEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2127994365]
+layout_mode = 2
+alignment = 1
+
+[node name="Disconnect" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1609599905]
+layout_mode = 2
+text = "DISCONNECT"
+
+[node name="LevelLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer" unique_id=891805892]
+visible = false
+layout_mode = 2
+placeholder_text = "Level"
+expand_to_text_length = true
+
+[node name="NameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer" unique_id=674164264]
+layout_mode = 2
+placeholder_text = "Name"
+expand_to_text_length = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer" unique_id=922028022]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/Disconnect" to="." method="_on_disconnect_button_up"]
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/LevelLineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/NameLineEdit" to="." method="_on_name_line_edit_text_submitted"]
+[connection signal="color_changed" from="VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]

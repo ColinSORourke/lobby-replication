@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b5h14dhitp8iu"]
+
+[ext_resource type="Script" uid="uid://eeend5jm2ah3" path="res://game_global.gd" id="1_qevlg"]
+[ext_resource type="PackedScene" uid="uid://dvai32jp4fsc8" path="res://MainMenu.tscn" id="2_8b0wu"]
+[ext_resource type="PackedScene" uid="uid://cla46apmrgnmw" path="res://Lobby.tscn" id="3_ek0w8"]
+
+[node name="GameGlobal" type="Node" unique_id=1369264466]
+script = ExtResource("1_qevlg")
+MainMenu = ExtResource("2_8b0wu")
+LobbyScene = ExtResource("3_ek0w8")
+
+[node name="WarnDialog" type="AcceptDialog" parent="." unique_id=789704089]
+title = "Warning!"
+initial_position = 2

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dvai32jp4fsc8"]
+
+[ext_resource type="Script" uid="uid://b4ele07v3wk7v" path="res://MainMenu.gd" id="1_i26rj"]
+
+[node name="MainMenu" type="Control" unique_id=1416225153]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i26rj")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1783954965]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1098560683]
+layout_mode = 2
+
+[node name="HostButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=227583330]
+layout_mode = 2
+text = "HOST"
+
+[node name="JoinButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1030398306]
+layout_mode = 2
+text = "JOIN
+"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1530755659]
+layout_mode = 2
+text = "QUIT
+"
+
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HostButton" to="." method="_on_host_button_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
