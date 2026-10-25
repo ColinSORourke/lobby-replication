@@ -29,16 +29,13 @@ func _remove_peer_label(peer: int):
 	peerLabels[peer].queue_free()
 	peerLabels.erase(peer)
 
-func _on_lobby_prop_change(prop: String) -> void:
+func _on_lobby_prop_change(prop: String, value: Variant) -> void:
 	if (prop == "CurrentLevel"):
-		var levelMetaData = multiplayer.get_lobby_property("CurrentLevel")
-		$LevelLabel.text = levelMetaData
+		$LevelLabel.text = value
 
-func _on_peer_prop_change(prop: String, peer: int) -> void:
+func _on_peer_prop_change(prop: String, peer: int, value: Variant) -> void:
 	print("Received Peer Prop Change")
 	if (prop == "Name"):
-		var nameMetaData = multiplayer.get_peer_property("Name", peer)
-		peerLabels[peer].text = nameMetaData
+		peerLabels[peer].text = value
 	if (prop == "Color"):
-		var colorMetaData = multiplayer.get_peer_property("Color", peer)
-		peerLabels[peer].set("theme_override_colors/font_color", colorMetaData)
+		peerLabels[peer].set("theme_override_colors/font_color", value)

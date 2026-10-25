@@ -10,6 +10,7 @@ var LobbyScene: PackedScene
 
 
 func _ready() -> void:
+	get_tree().set_multiplayer(MetaDataMultiplayer.new())
 	multiplayer.connected_to_server.connect(func(): change_to_lobby())
 	multiplayer.server_disconnected.connect(func(): multiplayer_disconnect())
 	multiplayer.connection_failed.connect(func(): print("Connection failed"))
